@@ -1,0 +1,14 @@
+aaa new-model
+aaa authentication login default local
+aaa authorization exec default local
+enable secret cisco
+parser view restict_this_joe
+secret restrict_joe_1
+commands exec include all show ip
+commands exec include show version
+commands exec include logout
+no commands exec inlude show version
+commands exec include terminal length 0
+commands exec include terminal width 512
+
+username joe_hotshot view restict_this_joe priv 15 secret restrict_joe_1

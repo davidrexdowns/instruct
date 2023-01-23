@@ -13,3 +13,7 @@ def push_show_commands(task):
 
 results = nr.run(task=push_show_commands)
 print_result(results)
+
+#Maybe use this
+#def push_configs(task)
+# task.run(task=send_configs_from_file, file="testconfigs.txt")

@@ -1,0 +1,6 @@
+copy run flash:baseconfig1
+#Destination filename[baseconfig1]? yes
+
+show flash
+
+configure replace flash:baseconfig1

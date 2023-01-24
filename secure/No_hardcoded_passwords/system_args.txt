@@ -1,0 +1,36 @@
+sys.argv
+argv[0]
+
+(position 1 will be where you enter something. position 0 will most likely be the file {python3 runbook1.py ______ } )
+
+
+In the script at the beginning.
+
+import sys
+
+nr.inventory.defaults.username = sys.argv[1]
+
+example:
+
+import sys
+import getpass
+from nornir import InitNornir
+from nornir_scrapli.tasks import send_command
+from nornir_utils.plugins.functions import print_result
+
+nr = InitNornir(config_file="config.yaml")
+
+R1_password = getpass.getpass(prompt="Enter the R1 password: ")
+R2_password = getpass.getpass(prompt="Enter the R2 password: ")
+
+nr.inventory.groups["R1_group"].password = R1_password
+nr.inventory.groups["R2_group"].password = R2_password
+
+nr.inventroy.defaults.username = sys.argv[1]
+
+def credential_task(task):
+  task.run(task=send_command, command="show ip interface brief")
+
+results = nr.run(task=credential_test)
+print_result(result)
+

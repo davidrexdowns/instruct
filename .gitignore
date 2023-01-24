@@ -1,0 +1,5 @@
+.venv/
+groups.yaml
+config.yaml
+defaults.yaml
+hosts.yaml
